@@ -29,11 +29,17 @@ function toggleTask(index) {
     tasks[index].completed = !tasks[index].completed;
     displayTasks();
 }
-
+// filters the tasks array to retrieve only the tasks that are not marked as completed (task.completed is false), returning a new array excluding completed tasks.
 function clearCompletedTasks() {
     tasks = tasks.filter(task => !task.completed);
     displayTasks();
 }
+// Clear all tasks stored in the elemet id taskList
+function clearAllTasks() {
+    taskList.innerHTML = "";
+    tasks = [];
+}
 
 addTaskBtn.addEventListener("click", addTask);
 clearCompletedBtn.addEventListener("click", clearCompletedTasks);
+clearAllBtn.addEventListener("click", clearAllTasks);
